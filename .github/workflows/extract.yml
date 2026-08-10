@@ -1,1 +1,47 @@
+name: Extract Gidoc MVP
 
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract ZIP
+        run: |
+          rm -rf extracted
+          mkdir -p extracted
+          unzip -o gidoc-ai-mvp-vercel-ready.zip -d extracted
+
+          if [ -d "extracted/gidoc-ai-mvp" ]; then
+            cp -a extracted/gidoc-ai-mvp/. .
+          else
+            cp -a extracted/. .
+          fi
+
+          rm -rf extracted
+          rm -f gidoc-ai-mvp-vercel-ready.zip
+
+      - name: Commit extracted project
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .
+          
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Extract Gidoc MVP project"
+            git push
+          fi
