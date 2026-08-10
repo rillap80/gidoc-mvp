@@ -1,0 +1,27 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+
+# Vercel
+.vercel
+
+# production
+build
+
+# env files — 절대 커밋하지 않는다 (자격증명 포함)
+.env
+.env.local
+.env.*.local
+
+# misc
+*.log
+.DS_Store
+*.pem
+
+# TypeScript
+*.tsbuildinfo

@@ -1,0 +1,22 @@
+{
+  "name": "gidoc-ai-cretop-worker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "크레탑 로그인 세션 자동화 워커 — Vercel(메인 앱)과 별도로 상시구동 호스트(Railway/Render/VPS 등)에 배포한다.",
+  "scripts": {
+    "start": "tsx cretop-worker.ts",
+    "start:loop": "tsx cretop-worker.ts --loop",
+    "playwright:install": "playwright install --with-deps chromium",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "playwright": "^1.46.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "@types/node": "^20.14.14",
+    "tsx": "^4.16.5"
+  }
+}

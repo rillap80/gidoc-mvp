@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "app/api/webhook/google-form/route.ts": { "maxDuration": 60 },
+    "app/api/agent/run/route.ts": { "maxDuration": 60 },
+    "app/api/agent/continue/route.ts": { "maxDuration": 60 },
+    "app/api/agent/deep/route.ts": { "maxDuration": 60 }
+  }
+}
