@@ -99,7 +99,6 @@ function ScoreGauge({ score, grade }: { score: number; grade: RiskGrade }) {
   const cx = size / 2;
   const cy = size / 2;
   const circumference = 2 * Math.PI * r;
-  const circumference = 2 * Math.PI * r;
 const filled = circumference * (score / 100);
 const gap = circumference - filled;
 
